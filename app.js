@@ -4,11 +4,13 @@ const path = require('path');
 const QRCode = require('qrcode');
 
 const app = express();
-const PORT = 3000;
-const HOST = '192.168.0.175'; // Your local IP address
+
+// Use PORT environment variable provided by Vercel or default to 3000
+const PORT = process.env.PORT || 3000;
 
 // Set up EJS view engine
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
@@ -44,6 +46,6 @@ app.get('/uploads/:filename', (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, HOST, () => {
-  console.log(`🚀 Server running at http://${HOST}:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
