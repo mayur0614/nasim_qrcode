@@ -6,6 +6,16 @@ const QRCode = require('qrcode');
 const app = express();
 const PORT = 3000;
 const HOST = '192.168.0.175'; // Your local IP address
+const express = require('express');
+const app = express();
+
+// Use PORT environment variable provided by Vercel
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 
 // Set up EJS view engine
 app.set('view engine', 'ejs');
