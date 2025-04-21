@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Image & Generate QR</title>
+</head>
+<body>
+  <h1>Upload an Image</h1>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required />
+    <button type="submit">Upload</button>
+  </form>
+
+  <% if (qr) { %>
+    <h2>Scan this QR Code to View Image</h2>
+    <img src="<%= qr %>" alt="QR Code" />
+  <% } %>
+</body>
+</html>
